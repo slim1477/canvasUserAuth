@@ -2,9 +2,10 @@
 
 namespace MemeberVerify.Data.DataStore
 {
+    // Represents demo verification information
     public static class VerificationData
     {
-        public static IEnumerable<Verification> Verifications = new List<Verification>()
+        public static List<Verification> Verifications = new List<Verification>()
         {
             new()
             {

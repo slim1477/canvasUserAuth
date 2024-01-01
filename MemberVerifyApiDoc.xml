@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MemeberVerify</name>
+    </assembly>
+    <members>
+        <member name="M:MemeberVerify.Controllers.VerifyController.GeAllMembers">
+            <summary>
+            Gets all members in the database
+            </summary>
+            <returns> List of members</returns>
+        </member>
+        <member name="M:MemeberVerify.Controllers.VerifyController.GetMemberByFirstName(System.String)">
+            <summary>
+            Gets member by  first name
+            </summary>
+            <param name="firstName"></param>
+            <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
+        </member>
+        <member name="M:MemeberVerify.Controllers.VerifyController.GetMemberById(System.Int32)">
+            <summary>
+            Gets member by Id
+            </summary>
+            <param name="id"></param>
+            <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
+        </member>
+    </members>
+</doc>

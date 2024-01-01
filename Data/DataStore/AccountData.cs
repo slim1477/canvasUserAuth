@@ -3,9 +3,10 @@
 
 namespace MemeberVerify.Data.DataStore
 {
+    // Represents Demo account types
     public static class AccountData
     {
-        public static IEnumerable<Account> accounts = new List<Account>()
+        public static List<Account> accounts = new List<Account>()
         {
             new()
             {
