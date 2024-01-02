@@ -1,4 +1,4 @@
-﻿namespace MemeberVerify.Models.Enums
+﻿namespace MemberVerify.Models.Enums
 {
     public enum ProductType
     {

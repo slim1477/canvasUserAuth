@@ -1,8 +1,8 @@
-﻿using MemeberVerify.Models.Enums;
+﻿using MemberVerify.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MemeberVerify.Models
+namespace MemberVerify.Models
 {
     public class Account
     {

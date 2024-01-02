@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security;
 
-namespace MemeberVerify.Models
+namespace MemberVerify.Models
 {
     public class Member
     {

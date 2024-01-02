@@ -1,3 +1,5 @@
+using MemberVerify.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,11 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+// add documentation to swagger via xml
 builder.Services.AddSwaggerGen(doc =>
 {
     doc.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Member verification API", Version = "v1" });
     doc.IncludeXmlComments(Path.Combine(System.AppContext.BaseDirectory, "MemberVerifyApiDoc.xml"));
 });
+
+// configure MemberVerify application for dependency injection
+builder.Services.AddScoped<IMemberVerifyRepo,MemberVerifyRepo>();
 
 var app = builder.Build();
 

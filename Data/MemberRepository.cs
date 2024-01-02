@@ -1,4 +1,4 @@
-﻿namespace MemeberVerify.Data
+﻿namespace MemberVerify.Data
 {
     public class MemberRepository
     {

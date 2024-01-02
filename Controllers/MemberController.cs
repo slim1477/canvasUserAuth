@@ -1,17 +1,19 @@
-﻿using MemeberVerify.Models;
+﻿using MemberVerify.Models;
 using Microsoft.AspNetCore.Mvc;
-using MemeberVerify.Data.DataStore;
-using System.Reflection.Metadata.Ecma335;
+using MemberVerify.Repository;
 
 
-namespace MemeberVerify.Controllers
+
+namespace MemberVerify.Controllers
 {
-    // Represents API routes/end points for the application
+    /// <summary>
+    /// Represents API routes/end points for the application
+    /// </summary>
     [ApiController]
     [Route("/apiv1/[Controller]")]
-    public class VerifyController() : ControllerBase
+    public class MemberController(IMemberVerifyRepo repo) : ControllerBase
     {
-
+       
         /// <summary>
         /// Gets all members in the database
         /// </summary>
@@ -21,10 +23,10 @@ namespace MemeberVerify.Controllers
         [ProducesResponseType(typeof(IEnumerable<Member>),StatusCodes.Status200OK)]
         [ProducesResponseType( StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public ActionResult<IEnumerable<Member>> GeAllMembers() 
+        public ActionResult<IEnumerable<Member>> GetAllMembers() 
         {
             
-            return Ok(MemberData.MemberList);
+            return Ok(repo.GetAllMembers());
             
         }
 
@@ -42,12 +44,12 @@ namespace MemeberVerify.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Member> GetMemberByFirstName(string firstName)
         {
-            Member member =  MemberData.MemberList.Where(mn => mn.FirstName.ToLower() == firstName.ToLower()).FirstOrDefault();
+            Member member =  repo.GetMemberByFirstName(firstName);
             if (member == null)
             {
                 return NotFound($"Member with first name {firstName} does not exsit");
             }
-            Console.WriteLine(member);
+            
             return Ok(member);
         }
 
@@ -65,7 +67,7 @@ namespace MemeberVerify.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Member> GetMemberById(int id)
         {
-            Member member = MemberData.MemberList.Where(mn => mn.Id == id).FirstOrDefault();
+            Member member = repo.GetMemberById(id);
             if (member == null)
             {
                 return NotFound($"Member with id {id} does not exsit");

@@ -1,7 +1,7 @@
-﻿using MemeberVerify.Models;
+﻿using MemberVerify.Models;
 
 
-namespace MemeberVerify.Data.DataStore
+namespace MemberVerify.Data.DataStore
 {
     // Represents Demo account types
     public static class AccountData

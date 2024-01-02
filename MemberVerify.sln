@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemeberVerify", "MemeberVerify.csproj", "{14534725-DC4F-442F-9E8F-BFA6CE526C0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemberVerify", "MemberVerify.csproj", "{14534725-DC4F-442F-9E8F-BFA6CE526C0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{767CD745-B1F4-4ACE-B322-04FAB769F724}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserInterface", "UserInterface", "{CAE03CB1-A9FC-493A-B7F5-85387F2DFFED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14534725-DC4F-442F-9E8F-BFA6CE526C0A} = {767CD745-B1F4-4ACE-B322-04FAB769F724}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F231DFB7-F88B-4386-8116-798B8F2C4228}

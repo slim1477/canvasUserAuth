@@ -1,10 +1,10 @@
-﻿using MemeberVerify.Models;
+﻿using MemberVerify.Models;
 
 
 
-namespace MemeberVerify.Data.DataStore
+namespace MemberVerify.Data.DataStore
 {
-    // Represents mock data set ffor members
+    // Represents mock data set for members
     public static class MemberData
     {
         public static List<Member> MemberList = new List<Member>()

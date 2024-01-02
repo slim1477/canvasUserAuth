@@ -1,6 +1,6 @@
-﻿using MemeberVerify.Models;
+﻿using MemberVerify.Models;
 
-namespace MemeberVerify.Data.DataStore
+namespace MemberVerify.Data.DataStore
 {
     // Represents demo verification information
     public static class VerificationData
