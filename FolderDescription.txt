@@ -1,0 +1,1 @@
+This folder holds content for the backend working of the MemberVerify application.
