@@ -14,7 +14,7 @@
             Represents API routes/end points for the application
             </summary>
         </member>
-        <member name="M:MemberVerify.Controllers.MemberController.GeAllMembers">
+        <member name="M:MemberVerify.Controllers.MemberController.GetAllMembers">
             <summary>
             Gets all members in the database
             </summary>

@@ -3,6 +3,9 @@ using System.Security;
 
 namespace MemberVerify.Models
 {
+    /// <summary>
+    /// Represents a member
+    /// </summary>
     public class Member
     {
         [Key]

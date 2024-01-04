@@ -2,9 +2,14 @@
 
 namespace MemberVerify.Data.DataStore
 {
-    // Represents demo verification information
+    /// <summary>
+    /// Represents demo verification information
+    /// </summary>
     public static class VerificationData
     {
+        /// <summary>
+        /// Represents mock verification data
+        /// </summary>
         public static List<Verification> Verifications = new List<Verification>()
         {
             new()

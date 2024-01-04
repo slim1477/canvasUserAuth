@@ -4,8 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MemberVerify.Models
 {
+    /// <summary>
+    /// Represents an account
+    /// </summary>
     public class Account
     {
+       
         [Key]
         public string AccountNumber { get; set; } = String.Empty;
 

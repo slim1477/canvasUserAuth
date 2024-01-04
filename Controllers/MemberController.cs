@@ -32,7 +32,7 @@ namespace MemberVerify.Controllers
 
 
         /// <summary>
-        /// Gets member by  first name
+        /// Gets member by first name
         /// </summary>
         /// <param name="firstName"></param>
         /// <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
