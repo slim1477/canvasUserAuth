@@ -24,5 +24,7 @@ namespace MemberVerify.Models
         [Required]
         [ForeignKey("Member")]
         public required Member OwnerId { get; set; }
+
+        public double Balance { get; set; }
     }
 }
