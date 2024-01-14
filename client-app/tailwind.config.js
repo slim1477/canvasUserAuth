@@ -25,6 +25,7 @@ export const theme = {
       primary: {
         DEFAULT: "hsl(var(--primary))",
         foreground: "hsl(var(--primary-foreground))",
+        accent: "#0c3b45",
       },
       secondary: {
         DEFAULT: "hsl(var(--secondary))",
