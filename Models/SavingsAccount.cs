@@ -1,17 +1,18 @@
-﻿using MemberVerify.Models.Enums;
+﻿using MemberVerify.Enums;
+using MemberVerify.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MemberVerify.Models
+namespace MemberVerify
 {
     /// <summary>
     /// Represents an account
     /// </summary>
-    public class Account
+    public class SavingsAccount : IAccount
     {
        
         [Key]
-        public string AccountNumber { get; set; } = String.Empty;
+        public int AccountNumber { get; set; } 
 
         [Required]
         public string AccountName { get; set; } = string.Empty;
@@ -19,12 +20,13 @@ namespace MemberVerify.Models
         public string AccountDescription { get; set; } = string.Empty;
 
         [Required]
-        public  ProductType Type { get; set; }
+        public string Type { get; set; } = string.Empty;
 
         [Required]
         [ForeignKey("Member")]
-        public required Member OwnerId { get; set; }
+        public required int OwnerId { get; set; }
 
         public double Balance { get; set; }
+        
     }
 }

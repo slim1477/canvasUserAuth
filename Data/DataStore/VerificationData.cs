@@ -1,6 +1,7 @@
 ﻿using MemberVerify.Models;
+using MemberVerify.Data.DataStore;
 
-namespace MemberVerify.Data.DataStore
+namespace MemberVerify
 {
     /// <summary>
     /// Represents demo verification information
@@ -10,7 +11,7 @@ namespace MemberVerify.Data.DataStore
         /// <summary>
         /// Represents mock verification data
         /// </summary>
-        public static List<Verification> Verifications = new List<Verification>()
+        public static List<Verification> Verifications = new()
         {
             new()
             {

@@ -1,4 +1,4 @@
-using MemberVerify.Repository;
+using MemberVerify;
 
 var builder = WebApplication.CreateBuilder(args);
 
