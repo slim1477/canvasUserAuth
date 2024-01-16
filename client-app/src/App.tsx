@@ -1,13 +1,13 @@
 // import { useState } from "react";
-import { Input } from "@/components/ui/input";
+
 import "./App.css";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <section className="flex h-screen w-full items-center justify-center">
+    <section className="flex h-screen w-full p-4">
       <div className="w-full">
-        <h2>Member Profile</h2>
-        <Input />
+        <Home />
       </div>
     </section>
   );
