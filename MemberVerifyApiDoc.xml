@@ -4,14 +4,20 @@
         <name>MemberVerify</name>
     </assembly>
     <members>
+        <member name="M:MemberVerify.AccountsController.GetMemberAccountById(System.Int32)">
+            <summary>
+            Gets accounts for specified member Id
+            </summary>
+            <returns> List of members</returns>
+        </member>
         <member name="T:MemberVerify.MemberController">
             <summary>
-            Represents API routes/end points for the application
+            Represents API routes/end points for member
             </summary>
         </member>
         <member name="M:MemberVerify.MemberController.#ctor(MemberVerify.IMemberVerifyRepo)">
             <summary>
-            Represents API routes/end points for the application
+            Represents API routes/end points for member
             </summary>
         </member>
         <member name="M:MemberVerify.MemberController.GetAllMembers">
@@ -42,14 +48,24 @@
             <param name="phonenumber"></param>
             <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
         </member>
-        <member name="T:MemberVerify.Data.DataStore.VerificationData">
+        <member name="T:MemberVerify.VerificationData">
             <summary>
             Represents demo verification information
             </summary>
         </member>
-        <member name="F:MemberVerify.Data.DataStore.VerificationData.Verifications">
+        <member name="F:MemberVerify.VerificationData.Verifications">
             <summary>
             Represents mock verification data
+            </summary>
+        </member>
+        <member name="T:MemberVerify.LoanTypes">
+            <summary>
+            specifies the different types of loans
+            </summary>
+        </member>
+        <member name="T:MemberVerify.IAccount">
+            <summary>
+            Represents the basic properties of an account
             </summary>
         </member>
         <member name="T:MemberVerify.IMemberVerifyRepo">
@@ -92,9 +108,19 @@
             <param name="Id"></param>
             <returns>returns member with specified Id</returns>
         </member>
-        <member name="T:MemberVerify.Account">
+        <member name="T:MemberVerify.AutoLoan">
             <summary>
-            Represents an account
+            Represents an Auto loan
+            </summary>
+        </member>
+        <member name="T:MemberVerify.CheckingAccount">
+            <summary>
+            Represents a checking account
+            </summary>
+        </member>
+        <member name="T:MemberVerify.AccountsDto">
+            <summary>
+            Represents response schema for accounts
             </summary>
         </member>
         <member name="T:MemberVerify.Models.Member">
@@ -110,6 +136,21 @@
         <member name="T:MemberVerify.Models.Verification">
             <summary>
             Represents the database model for the verification table
+            </summary>
+        </member>
+        <member name="T:MemberVerify.Mortgage">
+            <summary>
+            Represents a Mortage
+            </summary>
+        </member>
+        <member name="T:MemberVerify.PersonalLoan">
+            <summary>
+            Represents a Personal Loan
+            </summary>
+        </member>
+        <member name="T:MemberVerify.SavingsAccount">
+            <summary>
+            Represents an account
             </summary>
         </member>
         <member name="T:MemberVerify.MemberVerifyRepo">

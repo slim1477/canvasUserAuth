@@ -15,7 +15,7 @@ namespace MemberVerify
         public string AccountName { get ; set; } = string.Empty;
         public string AccountDescription { get; set; } = string.Empty;
         public double Balance { get; set; }
-        public ProductType Type { get; set; }
+        public string Type { get; set; } = string.Empty;
         public int OwnerId { get; set; }
         public string PaymentFrequency { get; set; } = string.Empty;
         public double InterestRate { get; set; }

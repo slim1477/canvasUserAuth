@@ -12,7 +12,7 @@ namespace MemberVerify
         string AccountName { get; set; }
         string AccountDescription { get; set; }
         double Balance { get; set; }
-        ProductType Type { get; set; }
+        string Type { get; set; }
         int OwnerId { get; set; }
     }
 }

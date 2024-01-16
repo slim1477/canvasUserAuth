@@ -20,7 +20,7 @@ namespace MemberVerify
         public string AccountDescription { get; set; } = string.Empty;
 
         [Required]
-        public  ProductType Type { get; set; }
+        public string Type { get; set; } = string.Empty;
 
         [Required]
         [ForeignKey("Member")]

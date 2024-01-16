@@ -23,7 +23,7 @@ namespace MemberVerify
         public double Balance { get ; set ; }
 
         [Required]
-        public ProductType Type { get; set; }
+        public string Type { get; set; } = string.Empty;
 
         [Required]
         public int OwnerId { get; set; }

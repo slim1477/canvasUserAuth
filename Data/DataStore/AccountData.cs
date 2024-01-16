@@ -15,7 +15,8 @@ namespace MemberVerify
                 AccountNumber = 112549,
                 AccountName = "Every Day Savings",
                 AccountDescription = "Day To Day Spending",
-                Type = ProductType.Savings,
+                Type = ProductType.Savings.ToString(),
+                Balance = 200,
                 OwnerId = MemberData.MemberList.First().Id
             },
              new SavingsAccount()
@@ -23,7 +24,7 @@ namespace MemberVerify
                 AccountNumber = 119949,
                 AccountName = "Every Day Savings",
                 AccountDescription = "Day To Day Spending",
-                Type = ProductType.Savings,
+                Type = ProductType.Savings.ToString(),
                 OwnerId = MemberData.MemberList.Last().Id
             },
               new CheckingAccount()
@@ -31,7 +32,7 @@ namespace MemberVerify
                 AccountNumber = 3222549,
                 AccountName = "Checking",
                 AccountDescription = "Checking Account",
-                Type = ProductType.Checking,
+                Type = ProductType.Checking.ToString(),
                 OwnerId = MemberData.MemberList.First().Id
             },
                new CheckingAccount()
@@ -39,7 +40,7 @@ namespace MemberVerify
                 AccountNumber = 222549,
                 AccountName = "Checking",
                 AccountDescription = "Checking Account",
-                Type = ProductType.Checking,
+                Type = ProductType.Checking.ToString(),
                 OwnerId = MemberData.MemberList.Last().Id
             }
         };
