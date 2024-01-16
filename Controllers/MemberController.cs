@@ -1,10 +1,10 @@
 ﻿using MemberVerify.Models;
 using Microsoft.AspNetCore.Mvc;
-using MemberVerify.Repository;
 
 
 
-namespace MemberVerify.Controllers
+
+namespace MemberVerify
 {
     /// <summary>
     /// Represents API routes/end points for the application

@@ -1,28 +1,46 @@
-﻿using MemberVerify.Models;
+﻿
+using MemberVerify.Enums;
+using MemberVerify.Data.DataStore;
 
 
-namespace MemberVerify.Data.DataStore
+namespace MemberVerify
 {
     // Represents Demo account types
     public static class AccountData
     {
-        public static List<Account> accounts = new List<Account>()
+        public static List<IAccount> accounts = new()
         {
-            new()
+            new SavingsAccount()
             {
-                AccountNumber = "112549",
+                AccountNumber = 112549,
                 AccountName = "Every Day Savings",
                 AccountDescription = "Day To Day Spending",
-                Type = Models.Enums.ProductType.Savings,
-                OwnerId = MemberData.MemberList.First()
+                Type = ProductType.Savings,
+                OwnerId = MemberData.MemberList.First().Id
             },
-               new Account()
+             new SavingsAccount()
             {
-                AccountNumber = "222549",
+                AccountNumber = 119949,
+                AccountName = "Every Day Savings",
+                AccountDescription = "Day To Day Spending",
+                Type = ProductType.Savings,
+                OwnerId = MemberData.MemberList.Last().Id
+            },
+              new CheckingAccount()
+            {
+                AccountNumber = 3222549,
                 AccountName = "Checking",
                 AccountDescription = "Checking Account",
-                Type = Models.Enums.ProductType.Checking,
-                OwnerId = MemberData.MemberList.Last()
+                Type = ProductType.Checking,
+                OwnerId = MemberData.MemberList.First().Id
+            },
+               new CheckingAccount()
+            {
+                AccountNumber = 222549,
+                AccountName = "Checking",
+                AccountDescription = "Checking Account",
+                Type = ProductType.Checking,
+                OwnerId = MemberData.MemberList.Last().Id
             }
         };
     };

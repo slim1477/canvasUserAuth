@@ -22,11 +22,5 @@ namespace MemberVerify.Models
         public double TransAmount { get; set; }
 
         public DateOnly TransDate { get; set; }
-
-
-
-
-
-
     }
 }

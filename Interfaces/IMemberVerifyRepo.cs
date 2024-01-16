@@ -1,7 +1,7 @@
 ﻿using MemberVerify.Models;
-using System.Collections;
 
-namespace MemberVerify.Repository
+
+namespace MemberVerify
 {
 
     /// <summary>

@@ -1,12 +1,16 @@
 ﻿using MemberVerify.Models;
 using MemberVerify.Data.DataStore;
-namespace MemberVerify.Repository
+
+
+
+
+namespace MemberVerify
 {
 
     /// <summary>
     /// Represents member data hub for member information
     /// </summary>
-    
+
     public class MemberVerifyRepo : IMemberVerifyRepo
     {
         /// <summary>
