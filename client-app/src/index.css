@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border m-0 p-0;
+    @apply border-border;
   }
   body {
     @apply bg-slate-100 text-foreground;
