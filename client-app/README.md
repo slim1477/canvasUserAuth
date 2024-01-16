@@ -1,6 +1,7 @@
 # How to run the client app
 
 cd ./client-app
+npm install
 npm run dev
 
 App should run on localhost:3000
