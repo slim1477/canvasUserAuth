@@ -85,7 +85,7 @@ namespace MemberVerify
                                                  (member, account) => new { member, account })
                                                  .Where(member => member.member.Id == id);
 
-            
+                
                 var accounts = new AccountsDto()
                 {
                     MemberId = result.Select(x => x.member.Id).FirstOrDefault(),

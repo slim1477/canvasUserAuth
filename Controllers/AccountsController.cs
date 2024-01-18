@@ -18,7 +18,7 @@ namespace MemberVerify
         /// <returns> List of members</returns>
         [HttpGet]
         [Route("{id:int}/account")]
-        [ProducesResponseType(typeof(IEnumerable<IAccount>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<AccountsDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -27,9 +27,9 @@ namespace MemberVerify
             AccountsDto accounts = MemberVerifyRepo.GetAccountByMemberId(id);
             
 
-            if (accounts == null) 
+            if (accounts.FirstName == null) 
             {
-                return NotFound("No account found");
+                return NotFound($"Member with id {id} does not exsit");
             }
             return Ok(accounts);                                   
         }
