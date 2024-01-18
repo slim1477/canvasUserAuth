@@ -194,5 +194,12 @@
             <param name="phoneNumber"></param>
             <returns>Returns a member with specified phone number</returns>
         </member>
+        <member name="M:MemberVerify.MemberVerifyRepo.GetAccountByMemberId(System.Int32)">
+            <summary>
+            Gets accounts for specified member id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
