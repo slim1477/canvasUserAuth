@@ -1,7 +1,6 @@
 ﻿using MemberVerify.Models;
 using MemberVerify.Data.DataStore;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http.HttpResults;
+
 
 
 
@@ -10,10 +9,10 @@ namespace MemberVerify
 {
 
     /// <summary>
-    /// Represents member data hub for member information
+    /// Represents member data repository for member information
     /// </summary>
 
-    public class MemberVerifyRepo : IMemberVerifyRepo
+    public class MemberRepo : IMemberRepo
     {
         /// <summary>
         /// Gets all members from the database
@@ -72,31 +71,6 @@ namespace MemberVerify
             return MemberData.MemberList.Where(m => m.PhoneNumber.ToLower() == phoneNumber.ToLower()).FirstOrDefault();
         }
 
-        /// <summary>
-        /// Gets accounts for specified member id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public static AccountsDto GetAccountByMemberId(int id)
-        {
-            var result = MemberData.MemberList.Join(AccountData.accounts,
-                                                 member => member.Id,
-                                                 account => account.OwnerId,
-                                                 (member, account) => new { member, account })
-                                                 .Where(member => member.member.Id == id);
-
-                
-                var accounts = new AccountsDto()
-                {
-                    MemberId = result.Select(x => x.member.Id).FirstOrDefault(),
-                    FirstName = result.Select(x => x.member.FirstName).FirstOrDefault(),
-                    LastName = result.Select(x => x.member.LastName).FirstOrDefault(),
-                    Accounts = result.Select(x => x.account).ToList()
-                };
-                return accounts;
-           
-          
-           
-        }
+      
     }
 }

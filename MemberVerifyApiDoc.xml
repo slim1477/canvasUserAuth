@@ -4,18 +4,12 @@
         <name>MemberVerify</name>
     </assembly>
     <members>
-        <member name="M:MemberVerify.AccountsController.GetMemberAccountById(System.Int32)">
-            <summary>
-            Gets accounts for specified member Id
-            </summary>
-            <returns> List of members</returns>
-        </member>
         <member name="T:MemberVerify.MemberController">
             <summary>
             Represents API routes/end points for member
             </summary>
         </member>
-        <member name="M:MemberVerify.MemberController.#ctor(MemberVerify.IMemberVerifyRepo)">
+        <member name="M:MemberVerify.MemberController.#ctor(MemberVerify.IMemberRepo,AutoMapper.IMapper)">
             <summary>
             Represents API routes/end points for member
             </summary>
@@ -68,25 +62,52 @@
             Represents the basic properties of an account
             </summary>
         </member>
-        <member name="T:MemberVerify.IMemberVerifyRepo">
+        <member name="T:MemberVerify.IAccountRepo">
             <summary>
-            
+            Represents the actions of the account repo
             </summary>
         </member>
-        <member name="M:MemberVerify.IMemberVerifyRepo.GetAllMembers">
+        <member name="M:MemberVerify.IAccountRepo.GetAllAccounts">
+            <summary>
+            Gets a list of Accounts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.IAccountRepo.GetAccountByAccountNumber(System.Int32)">
+            <summary>
+            Gets account with specified account number
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.IAccountRepo.GetAccountAndTransactions(System.Int32)">
+            <summary>
+            Gets account and associated transactions with specified Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.IAccountRepo.GetAccountByMemberId(System.Int32)">
+            <summary>
+            Gets accounts for specified member id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.IMemberRepo.GetAllMembers">
             <summary>
             Gets all members in the database
             </summary>
             <returns>a list of memebrs</returns>
         </member>
-        <member name="M:MemberVerify.IMemberVerifyRepo.GetMemberByFirstName(System.String)">
+        <member name="M:MemberVerify.IMemberRepo.GetMemberByFirstName(System.String)">
             <summary>
             Gets member by first name
             </summary>
             <param name="firstname"></param>
             <returns>member with specified first name</returns>
         </member>
-        <member name="M:MemberVerify.IMemberVerifyRepo.GetMemberByFullName(System.String,System.String)">
+        <member name="M:MemberVerify.IMemberRepo.GetMemberByFullName(System.String,System.String)">
             <summary>
             Gets member by first and last name
             </summary>
@@ -94,14 +115,14 @@
             <param name="lastName"></param>
             <returns>Returns specified member with first and last name</returns>
         </member>
-        <member name="M:MemberVerify.IMemberVerifyRepo.GetMemberByPhoneNumber(System.String)">
+        <member name="M:MemberVerify.IMemberRepo.GetMemberByPhoneNumber(System.String)">
             <summary>
             Gets member by phone number
             </summary>
             <param name="phoneNumber"></param>
             <returns>Returns specofoed member by phone number</returns>
         </member>
-        <member name="M:MemberVerify.IMemberVerifyRepo.GetMemberById(System.Int32)">
+        <member name="M:MemberVerify.IMemberRepo.GetMemberById(System.Int32)">
             <summary>
             Gets memebr by Id
             </summary>
@@ -123,11 +144,6 @@
             Represents response schema for accounts
             </summary>
         </member>
-        <member name="T:MemberVerify.Models.Member">
-            <summary>
-            Represents a member
-            </summary>
-        </member>
         <member name="T:MemberVerify.Models.Transaction">
             <summary>
             REpresents a transaction
@@ -136,6 +152,11 @@
         <member name="T:MemberVerify.Models.Verification">
             <summary>
             Represents the database model for the verification table
+            </summary>
+        </member>
+        <member name="T:MemberVerify.Member">
+            <summary>
+            Represents a member
             </summary>
         </member>
         <member name="T:MemberVerify.Mortgage">
@@ -153,32 +174,33 @@
             Represents an account
             </summary>
         </member>
-        <member name="T:MemberVerify.MemberVerifyRepo">
+        <!-- Badly formed XML comment ignored for member "M:MemberVerify.AccountRepo.GetAccountByMemberId(System.Int32)" -->
+        <member name="T:MemberVerify.MemberRepo">
             <summary>
-            Represents member data hub for member information
+            Represents member data repository for member information
             </summary>
         </member>
-        <member name="M:MemberVerify.MemberVerifyRepo.GetAllMembers">
+        <member name="M:MemberVerify.MemberRepo.GetAllMembers">
             <summary>
             Gets all members from the database
             </summary>
             <returns>A list of members</returns>
         </member>
-        <member name="M:MemberVerify.MemberVerifyRepo.GetMemberById(System.Int32)">
+        <member name="M:MemberVerify.MemberRepo.GetMemberById(System.Int32)">
             <summary>
             Gets a member by Id
             </summary>
             <param name="Id"></param>
             <returns>member with specified Id</returns>
         </member>
-        <member name="M:MemberVerify.MemberVerifyRepo.GetMemberByFirstName(System.String)">
+        <member name="M:MemberVerify.MemberRepo.GetMemberByFirstName(System.String)">
             <summary>
             Gets member by first name
             </summary>
             <param name="firstname"></param>
             <returns>members with specified first name</returns>
         </member>
-        <member name="M:MemberVerify.MemberVerifyRepo.GetMemberByFullName(System.String,System.String)">
+        <member name="M:MemberVerify.MemberRepo.GetMemberByFullName(System.String,System.String)">
             <summary>
             Gets member by first name and last name
             </summary>
@@ -187,19 +209,12 @@
             <returns>List of members with specified first name and last name</returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:MemberVerify.MemberVerifyRepo.GetMemberByPhoneNumber(System.String)">
+        <member name="M:MemberVerify.MemberRepo.GetMemberByPhoneNumber(System.String)">
             <summary>
             Gets member with specified phone number
             </summary>
             <param name="phoneNumber"></param>
             <returns>Returns a member with specified phone number</returns>
-        </member>
-        <member name="M:MemberVerify.MemberVerifyRepo.GetAccountByMemberId(System.Int32)">
-            <summary>
-            Gets accounts for specified member id
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>

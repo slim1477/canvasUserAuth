@@ -1,4 +1,5 @@
-﻿using MemberVerify.Models;
+﻿using AutoMapper;
+using MemberVerify.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -11,7 +12,7 @@ namespace MemberVerify
     /// </summary>
     [ApiController]
     [Route("apiv1")]
-    public class MemberController(IMemberVerifyRepo repo) : ControllerBase
+    public class MemberController(IMemberRepo repo,IMapper _mapper) : ControllerBase
     {
        
         /// <summary>
@@ -20,13 +21,16 @@ namespace MemberVerify
         /// <returns> List of members</returns>
         [HttpGet]
         [Route("members")]
-        [ProducesResponseType(typeof(IEnumerable<Member>),StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType( StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public ActionResult<IEnumerable<Member>> GetAllMembers() 
+        public ActionResult<IEnumerable<MemberDto>> GetAllMembers() 
         {
+            var members = repo.GetAllMembers();
             
-            return Ok(repo.GetAllMembers());
+            if(members == null) return NotFound();
+            
+            return Ok(_mapper.Map<List<MemberDto>>(members));
             
         }
 
@@ -39,11 +43,11 @@ namespace MemberVerify
         /// <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
         [HttpGet]
         [Route("{firstName:alpha},{lastName:alpha}")]
-        [ProducesResponseType(typeof(IEnumerable<Member>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Member> GetMemberByFirstName(string firstName,string lastName)
+        public ActionResult<MemberDto> GetMemberByFirstName(string firstName,string lastName)
         {
             Member member =  repo.GetMemberByFirstName(firstName);
             if (member == null)
@@ -51,7 +55,7 @@ namespace MemberVerify
                 return NotFound($"Member with name {firstName} + {" "} + {lastName} does not exsit");
             }
             
-            return Ok(member);
+            return Ok(_mapper.Map<MemberDto>(member));
         }
 
         /// <summary>
@@ -62,18 +66,18 @@ namespace MemberVerify
 
         [HttpGet]
         [Route("profile/{id:int}")]
-        [ProducesResponseType(typeof(IEnumerable<Member>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Member> GetMemberById(int id)
+        public ActionResult<MemberDto> GetMemberById(int id)
         {
             Member member = repo.GetMemberById(id);
             if (member == null)
             {
                 return NotFound($"Member with id {id} does not exsit");
             }
-            return Ok(member);
+            return Ok(_mapper.Map<MemberDto>(member));
         }
 
         /// <summary>
@@ -84,18 +88,18 @@ namespace MemberVerify
 
         [HttpGet]
         [Route("profile")]
-        [ProducesResponseType(typeof(IEnumerable<Member>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Member> GetMemberByPhoneNumber(string phonenumber)
+        public ActionResult<MemberDto> GetMemberByPhoneNumber(string phonenumber)
         {
             Member member = repo.GetMemberByPhoneNumber(phonenumber);
             if (member == null)
             {
                 return NotFound($"Member with phone number {phonenumber} does not exsit");
             }
-            return Ok(member);
+            return Ok(_mapper.Map<MemberDto>(member));
         }
     }
 }

@@ -18,9 +18,9 @@ namespace MemberVerify.Data.DataStore
             Email = "james@gmail.com",
             PhoneNumber = "204-958-8588",
             Address = "123 Hargrave Avenue Winnipeg, Manitoba",
-            MemberSince = DateOnly.Parse("3/05/2002")
+            MemberSince = new DateOnly(2002,05,03)
         },
-                   new Member()
+             new Member()
         {
             Id = 2,
             FirstName = "Brain",
@@ -29,7 +29,7 @@ namespace MemberVerify.Data.DataStore
             Email = "brain@gmail.com",
             PhoneNumber = "204-958-3866",
             Address = "425 test street Winnipeg, Manitoba",
-            MemberSince = DateOnly.Parse("4/05/2022")
+            MemberSince = new DateOnly(2022,05,20)
         }
     };
         

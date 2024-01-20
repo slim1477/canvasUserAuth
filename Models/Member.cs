@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Security;
 
-namespace MemberVerify.Models
+
+namespace MemberVerify
 {
     /// <summary>
     /// Represents a member

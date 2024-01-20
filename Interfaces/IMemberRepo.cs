@@ -3,12 +3,9 @@
 
 namespace MemberVerify
 {
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public interface IMemberVerifyRepo
+    public interface IMemberRepo
     {
+
         /// <summary>
         /// Gets all members in the database
         /// </summary>
