@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
+import { Checkbox } from "../ui/checkbox";
 
 import successIcon from "@/assets/Verification/success.png";
 import failIcon from "@/assets/Verification/fail.png";
@@ -17,6 +17,16 @@ import failIcon from "@/assets/Verification/fail.png";
 export const VerifyButton = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  // state to track if member provided verification code
+  const [providedCode, setProvidedCode] = useState<boolean | "indeterminate">(
+    false
+  );
+  const disableVerificationButton = () => {
+    if (!providedCode) {
+      return true;
+    }
+    return false;
+  };
   const handleVerifyButton = () => {
     setIsVerified(true);
     setIsOpen(false);
@@ -43,29 +53,24 @@ export const VerifyButton = () => {
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Verify Member</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
+            <DialogDescription>Using Verification code</DialogDescription>
           </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Input
-                id="name"
-                defaultValue="Pedro Duarte"
-                className="col-span-3"
-              />
-            </div>
-            <div className="grid grid-cols-4 items-center gap-4">
-              <Input
-                id="username"
-                defaultValue="@peduarte"
-                className="col-span-3"
-              />
-            </div>
-          </div>
+          <section className="flex items-center gap-3">
+            <Checkbox
+              checked={providedCode}
+              onCheckedChange={setProvidedCode}
+            />
+            <p>
+              Verification Code: <span className="font-bold">Kamsiyonna</span>
+            </p>
+          </section>
           <DialogFooter>
             <Button variant="ghost">Skip</Button>
-            <Button className="bg-primary-accent" onClick={handleVerifyButton}>
+            <Button
+              disabled={disableVerificationButton()}
+              className="bg-primary-accent"
+              onClick={handleVerifyButton}
+            >
               Verify
             </Button>
           </DialogFooter>
