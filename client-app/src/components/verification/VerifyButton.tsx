@@ -61,7 +61,7 @@ export const VerifyButton = () => {
               onCheckedChange={setProvidedCode}
             />
             <p>
-              Verification Code: <span className="font-bold">Kamsiyonna</span>
+              Verification Code: <span className="font-bold">Trixie</span>
             </p>
           </section>
           <DialogFooter>
