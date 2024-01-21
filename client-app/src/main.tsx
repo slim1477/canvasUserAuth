@@ -10,11 +10,7 @@ import ErrorPage from "./error-page.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <Root />
-      </div>
-    ),
+    element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
