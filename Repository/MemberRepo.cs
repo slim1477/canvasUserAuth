@@ -5,7 +5,7 @@ using MemberVerify.Data.DataStore;
 
 
 
-namespace MemberVerify
+namespace MemberVerify.Repository
 {
 
     /// <summary>

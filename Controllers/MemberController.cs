@@ -36,23 +36,22 @@ namespace MemberVerify
 
 
         /// <summary>
-        /// Gets member by first name and last name
+        /// Gets member by first name 
         /// </summary>
         /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
         /// <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
         [HttpGet]
-        [Route("{firstName:alpha},{lastName:alpha}")]
+        [Route("{firstName:alpha}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<MemberDto> GetMemberByFirstName(string firstName,string lastName)
+        public ActionResult<MemberDto> GetMemberByFirstName(string firstName)
         {
             Member member =  repo.GetMemberByFirstName(firstName);
             if (member == null)
             {
-                return NotFound($"Member with name {firstName} + {" "} + {lastName} does not exsit");
+                return NotFound($"Member with name {firstName} does not exsit");
             }
             
             return Ok(_mapper.Map<MemberDto>(member));

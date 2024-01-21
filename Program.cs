@@ -1,4 +1,5 @@
 using MemberVerify;
+using MemberVerify.Repository;
 using Microsoft.OpenApi.Models;
 
 
@@ -26,7 +27,7 @@ builder.Services.AddSwaggerGen(doc =>
 });
 
 // configure MemberVerify application for dependency injection
-builder.Services.AddScoped<IMemberRepo,MemberRepo>();
+builder.Services.AddScoped<IMemberRepo, MemberRepo>();
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
@@ -36,11 +37,12 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
+if (app.Environment.IsDevelopment())
+{
+    //app.UseSwagger();
+    //app.UseSwaggerUI();
+    app.UseCors();
+}
 
 app.UseHttpsRedirection();
 

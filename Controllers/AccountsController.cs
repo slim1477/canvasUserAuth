@@ -1,38 +1,60 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-//using MemberVerify.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 
 
 
 
-//namespace MemberVerify
-//{
+namespace MemberVerify
+{
 
-//    [ApiController]
-//    [Route("accounts")]
-//    public class AccountsController : ControllerBase
-//    {
+    [ApiController]
+    [Route("accounts")]
+    public class AccountsController(IAccountRepo repo,IMapper _mapper) : ControllerBase
+    {
 
-//        /// <summary>
-//        /// Gets accounts for specified member Id
-//        /// </summary>
-//        /// <returns> List of members</returns>
-//        [HttpGet]
-//        [Route("{id:int}/account")]
-//        [ProducesResponseType(typeof(IEnumerable<AccountsDto>), StatusCodes.Status200OK)]
-//        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-//        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-//        [ProducesResponseType(StatusCodes.Status404NotFound)]
-//        public  ActionResult<AccountsDto> GetMemberAccountById(int id)
-//        {
-//            AccountsDto accounts = MemberRepo.GetAccountByMemberId(id);
+        /// <summary>
+        /// Gets accounts for specified member Id
+        /// </summary>
+        /// <returns> List of member accounts</returns>
+        [HttpGet]
+        [Route("{id:int}/account")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<AccountDto>> GetMemberAccountById(int id)
+        {
             
 
-//            if (accounts.FirstName == null) 
-//            {
-//                return NotFound($"Member with id {id} does not exsit");
-//            }
-//            return Ok(accounts);                                   
-//        }
+            var result = repo.GetAccountByMemberId(id);
+            
 
-//    }
-//}
+
+            if (result.Count < 1)
+            {
+                return NotFound($"Member with id {id} does not have any accounts yet");
+            }
+            return Ok(_mapper.Map<List<AccountDto>>(result));
+        }
+
+        /// <summary>
+        /// Gets account for specified account number
+        /// </summary>
+        /// <returns> specified account</returns>
+        [HttpGet]
+        [Route("account/{acctNum:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IAccount> GetAccountByAccountNumber(int acctNum)
+        {
+            var result = repo.GetAccountByAccountNumber(acctNum);
+
+            if(result == null) { return NotFound($"Account with {acctNum} does not exsits"); }
+
+            return Ok(result);
+        }
+
+    }
+}

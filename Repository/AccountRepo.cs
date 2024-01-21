@@ -5,7 +5,7 @@
 
 using MemberVerify.Data.DataStore;
 
-namespace MemberVerify
+namespace MemberVerify.Repository
 {
     public class AccountRepo : IAccountRepo
     {
@@ -14,9 +14,9 @@ namespace MemberVerify
             throw new NotImplementedException();
         }
 
-        public IAccount GetAccountByAccountNumber(int id)
+        public IAccount GetAccountByAccountNumber(int acctNum)
         {
-            throw new NotImplementedException();
+            return AccountData.accounts.Where(account => account.AccountNumber == acctNum).FirstOrDefault();
         }
 
         public List<IAccount> GetAllAccounts()
@@ -31,12 +31,13 @@ namespace MemberVerify
         /// < returns ></ returns >
         public List<IAccount> GetAccountByMemberId(int id)
         {
+            var account = AccountData.accounts.Where(account => account.OwnerId == id).ToList();
             //var result = MemberData.MemberList.Join(AccountData.accounts,
             //                                     member => member.Id,
             //                                     account => account.OwnerId,
             //                                     (member, account) => new { member, account })
             //                                     .Where(member => member.member.Id == id);
-
+            
 
             //var accounts = new AccountsDto()
             //{
@@ -47,13 +48,10 @@ namespace MemberVerify
             //};
             //return result;
 
-            throw new NotImplementedException();
+            return account;
 
         }
 
-        List<IAccount> IAccountRepo.GetAccountByMemberId(int id)
-        {
-            throw new NotImplementedException();
-        }
+    
     }
 }
