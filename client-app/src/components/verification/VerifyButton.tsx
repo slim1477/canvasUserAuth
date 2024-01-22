@@ -9,10 +9,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Checkbox } from "../ui/checkbox";
 
 import successIcon from "@/assets/Verification/success.png";
 import failIcon from "@/assets/Verification/fail.png";
+import { VerificationCode } from "./Code/VerificationCode";
 
 export const VerifyButton = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -55,15 +55,11 @@ export const VerifyButton = () => {
             <DialogTitle>Verify Member</DialogTitle>
             <DialogDescription>Using Verification code</DialogDescription>
           </DialogHeader>
-          <section className="flex items-center gap-3">
-            <Checkbox
-              checked={providedCode}
-              onCheckedChange={setProvidedCode}
-            />
-            <p>
-              Verification Code: <span className="font-bold">Trixie</span>
-            </p>
-          </section>
+          <VerificationCode
+            providedCode={providedCode}
+            setProvidedCode={setProvidedCode}
+          />
+
           <DialogFooter>
             <Button variant="ghost">Skip</Button>
             <Button
