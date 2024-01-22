@@ -13,6 +13,7 @@ import {
 import successIcon from "@/assets/Verification/success.png";
 import failIcon from "@/assets/Verification/fail.png";
 import { VerificationCode } from "./Code/VerificationCode";
+import { PrimaryQuestion } from "./Questions/PrimaryQuestion";
 
 export const VerifyButton = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -50,16 +51,18 @@ export const VerifyButton = () => {
             </div>
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className={"lg:max-w-screen-lg max-h-screen"}>
           <DialogHeader>
             <DialogTitle>Verify Member</DialogTitle>
             <DialogDescription>Using Verification code</DialogDescription>
           </DialogHeader>
+          {/* Verify using code */}
           <VerificationCode
             providedCode={providedCode}
             setProvidedCode={setProvidedCode}
           />
-
+          {/* Verify by answering account specific questions */}
+          <PrimaryQuestion />
           <DialogFooter>
             <Button variant="ghost">Skip</Button>
             <Button
