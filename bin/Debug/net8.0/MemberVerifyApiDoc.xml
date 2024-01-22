@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MemberVerify</name>
+    </assembly>
+    <members>
+        <member name="M:MemberVerify.AccountsController.GetMemberAccountById(System.Int32)">
+            <summary>
+            Gets accounts for specified member Id
+            </summary>
+            <returns> List of member accounts</returns>
+        </member>
+        <member name="M:MemberVerify.AccountsController.GetAccountByAccountNumber(System.Int32)">
+            <summary>
+            Gets account for specified account number
+            </summary>
+            <returns> specified account</returns>
+        </member>
+        <member name="T:MemberVerify.MemberController">
+            <summary>
+            Represents API routes/end points for member
+            </summary>
+        </member>
+        <member name="M:MemberVerify.MemberController.#ctor(MemberVerify.IMemberRepo,AutoMapper.IMapper)">
+            <summary>
+            Represents API routes/end points for member
+            </summary>
+        </member>
+        <member name="M:MemberVerify.MemberController.GetAllMembers">
+            <summary>
+            Gets all members in the database
+            </summary>
+            <returns> List of members</returns>
+        </member>
+        <member name="M:MemberVerify.MemberController.GetMemberByFirstName(System.String)">
+            <summary>
+            Gets member by first name 
+            </summary>
+            <param name="firstName"></param>
+            <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
+        </member>
+        <member name="M:MemberVerify.MemberController.GetMemberById(System.Int32)">
+            <summary>
+            Gets member by Id
+            </summary>
+            <param name="id"></param>
+            <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
+        </member>
+        <member name="M:MemberVerify.MemberController.GetMemberByPhoneNumber(System.String)">
+            <summary>
+            Gets member by phone number
+            </summary>
+            <param name="phonenumber"></param>
+            <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
+        </member>
+        <member name="M:MemberVerify.Controllers.VerificationQuestionController.GetVerificationQuestionByMemberId(System.Int32)">
+            <summary>
+            Gets verification question and answer for specified member Id
+            </summary>
+            <returns> List of member accounts</returns>
+        </member>
+        <member name="M:MemberVerify.Controllers.VerificationQuestionController.CreateVerificationQuestionAndAnswer(System.Int32,System.String,System.String)">
+            <summary>
+            Creates a new verification question and answer
+            </summary>
+            <param name="question"></param>
+            <param name="answer"></param>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.Controllers.VerificationQuestionController.UpdateVerificationQuestionAndAnswer(System.Int32,System.String,System.String)">
+            <summary>
+            updates verification question and answer for specified member id
+            </summary>
+            <param name="question"></param>
+            <param name="answer"></param>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MemberVerify.VerificationData">
+            <summary>
+            Represents demo verification information
+            </summary>
+        </member>
+        <member name="F:MemberVerify.VerificationData.verifications">
+            <summary>
+            Represents mock verification data
+            </summary>
+        </member>
+        <member name="T:MemberVerify.LoanTypes">
+            <summary>
+            specifies the different types of loans
+            </summary>
+        </member>
+        <member name="T:MemberVerify.IAccount">
+            <summary>
+            Represents the basic properties of an account
+            </summary>
+        </member>
+        <member name="T:MemberVerify.IAccountRepo">
+            <summary>
+            Represents the actions of the account repo
+            </summary>
+        </member>
+        <member name="M:MemberVerify.IAccountRepo.GetAccountByAccountNumber(System.Int32)">
+            <summary>
+            Gets account with specified account number
+            </summary>
+            <param name="acctNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.IAccountRepo.GetAccountByMemberId(System.Int32)">
+            <summary>
+            Gets accounts for specified member id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.IMemberRepo.GetAllMembers">
+            <summary>
+            Gets all members in the database
+            </summary>
+            <returns>a list of memebrs</returns>
+        </member>
+        <member name="M:MemberVerify.IMemberRepo.GetMemberByFirstName(System.String)">
+            <summary>
+            Gets member by first name
+            </summary>
+            <param name="firstname"></param>
+            <returns>member with specified first name</returns>
+        </member>
+        <member name="M:MemberVerify.IMemberRepo.GetMemberByFullName(System.String,System.String)">
+            <summary>
+            Gets member by first and last name
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <returns>Returns specified member with first and last name</returns>
+        </member>
+        <member name="M:MemberVerify.IMemberRepo.GetMemberByPhoneNumber(System.String)">
+            <summary>
+            Gets member by phone number
+            </summary>
+            <param name="phoneNumber"></param>
+            <returns>Returns specofoed member by phone number</returns>
+        </member>
+        <member name="M:MemberVerify.IMemberRepo.GetMemberById(System.Int32)">
+            <summary>
+            Gets memebr by Id
+            </summary>
+            <param name="Id"></param>
+            <returns>returns member with specified Id</returns>
+        </member>
+        <member name="T:MemberVerify.Models.AutoLoan">
+            <summary>
+            Represents an Auto loan
+            </summary>
+        </member>
+        <member name="T:MemberVerify.Models.Transaction">
+            <summary>
+            REpresents a transaction
+            </summary>
+        </member>
+        <member name="T:MemberVerify.Models.Verification">
+            <summary>
+            Represents the database model for the verification table
+            </summary>
+        </member>
+        <member name="T:MemberVerify.CheckingAccount">
+            <summary>
+            Represents a checking account
+            </summary>
+        </member>
+        <member name="T:MemberVerify.AccountDto">
+            <summary>
+            Represents response schema for accounts
+            </summary>
+        </member>
+        <member name="T:MemberVerify.Member">
+            <summary>
+            Represents a member
+            </summary>
+        </member>
+        <member name="T:MemberVerify.Mortgage">
+            <summary>
+            Represents a Mortage
+            </summary>
+        </member>
+        <member name="T:MemberVerify.PersonalLoan">
+            <summary>
+            Represents a Personal Loan
+            </summary>
+        </member>
+        <member name="T:MemberVerify.SavingsAccount">
+            <summary>
+            Represents an account
+            </summary>
+        </member>
+        <member name="M:MemberVerify.Repository.AccountRepo.GetAccountByMemberId(System.Int32)">
+            <summary>
+            Gets accounts for specified member id
+            </summary>
+            <param name = "id" ></param >
+            <returns ></returns >
+        </member>
+        <member name="T:MemberVerify.Repository.MemberRepo">
+            <summary>
+            Represents member data repository for member information
+            </summary>
+        </member>
+        <member name="M:MemberVerify.Repository.MemberRepo.GetAllMembers">
+            <summary>
+            Gets all members from the database
+            </summary>
+            <returns>A list of members</returns>
+        </member>
+        <member name="M:MemberVerify.Repository.MemberRepo.GetMemberById(System.Int32)">
+            <summary>
+            Gets a member by Id
+            </summary>
+            <param name="Id"></param>
+            <returns>member with specified Id</returns>
+        </member>
+        <member name="M:MemberVerify.Repository.MemberRepo.GetMemberByFirstName(System.String)">
+            <summary>
+            Gets member by first name
+            </summary>
+            <param name="firstname"></param>
+            <returns>members with specified first name</returns>
+        </member>
+        <member name="M:MemberVerify.Repository.MemberRepo.GetMemberByFullName(System.String,System.String)">
+            <summary>
+            Gets member by first name and last name
+            </summary>
+            <param name="firstName"></param>
+            <param name="lastName"></param>
+            <returns>List of members with specified first name and last name</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:MemberVerify.Repository.MemberRepo.GetMemberByPhoneNumber(System.String)">
+            <summary>
+            Gets member with specified phone number
+            </summary>
+            <param name="phoneNumber"></param>
+            <returns>Returns a member with specified phone number</returns>
+        </member>
+    </members>
+</doc>

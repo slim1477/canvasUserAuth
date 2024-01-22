@@ -1,0 +1,8 @@
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.csproj.AssemblyReference.cache
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.AssemblyInfoInputs.cache
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.AssemblyInfo.cs
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.csproj.CoreCompileInputs.cache
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Slim\Desktop\Projects\.net\projects\MemberVerify\obj\Debug\net6.0\MemberVerify.sourcelink.json
