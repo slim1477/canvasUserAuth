@@ -11,15 +11,14 @@ namespace MemberVerify
         /// <summary>
         /// Represents mock verification data
         /// </summary>
-        public static List<Verification> Verifications = new()
+        public static List<Verification> verifications = new()
         {
             new()
             {
-                Id = 1,
                 VerificationQuestion = "What is the name of your pet?",
                 Answer = "Bingo",
                 LastUpdated = DateOnly.Parse("03/22/2021"),
-                OwnerId = MemberData.MemberList.First()
+                OwnerId = MemberData.MemberList.First().Id
 
             },
 

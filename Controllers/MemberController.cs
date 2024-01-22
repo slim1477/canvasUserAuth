@@ -11,7 +11,7 @@ namespace MemberVerify
     /// Represents API routes/end points for member
     /// </summary>
     [ApiController]
-    [Route("apiv1")]
+    [Route("api/v1")]
     public class MemberController(IMemberRepo repo,IMapper _mapper) : ControllerBase
     {
        

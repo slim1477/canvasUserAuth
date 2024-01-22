@@ -27,8 +27,8 @@ namespace MemberVerify.Repository
         /// <summary>
         /// Gets accounts for specified member id
         /// </summary>
-        /// <param name = "id" ></ param >
-        /// < returns ></ returns >
+        /// <param name = "id" ></param >
+        /// <returns ></returns >
         public List<IAccount> GetAccountByMemberId(int id)
         {
             var account = AccountData.accounts.Where(account => account.OwnerId == id).ToList();

@@ -8,13 +8,11 @@ namespace MemberVerify.Models
     /// </summary>
     public class Verification
     {
-        [Key]
-        public int Id { get; set; }
 
         
         [ForeignKey("Member")]
         [Required]
-        public required Member OwnerId {  get; set; }
+        public int OwnerId {  get; set; }
 
         [Required(ErrorMessage ="This is a required Field")]
         public string VerificationQuestion { get; set; } = String.Empty;

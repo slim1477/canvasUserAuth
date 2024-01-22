@@ -53,12 +53,36 @@
             <param name="phonenumber"></param>
             <returns>member with specified search parameter and returns a 404 — Not Found if not found</returns>
         </member>
+        <member name="M:MemberVerify.Controllers.VerificationQuestionController.GetVerificationQuestionByMemberId(System.Int32)">
+            <summary>
+            Gets verification question and answer for specified member Id
+            </summary>
+            <returns> List of member accounts</returns>
+        </member>
+        <member name="M:MemberVerify.Controllers.VerificationQuestionController.CreateVerificationQuestionAndAnswer(System.Int32,System.String,System.String)">
+            <summary>
+            Creates a new verification question and answer
+            </summary>
+            <param name="question"></param>
+            <param name="answer"></param>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MemberVerify.Controllers.VerificationQuestionController.UpdateVerificationQuestionAndAnswer(System.Int32,System.String,System.String)">
+            <summary>
+            updates verification question and answer for specified member id
+            </summary>
+            <param name="question"></param>
+            <param name="answer"></param>
+            <param name="ownerId"></param>
+            <returns></returns>
+        </member>
         <member name="T:MemberVerify.VerificationData">
             <summary>
             Represents demo verification information
             </summary>
         </member>
-        <member name="F:MemberVerify.VerificationData.Verifications">
+        <member name="F:MemberVerify.VerificationData.verifications">
             <summary>
             Represents mock verification data
             </summary>
@@ -172,7 +196,13 @@
             Represents an account
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:MemberVerify.Repository.AccountRepo.GetAccountByMemberId(System.Int32)" -->
+        <member name="M:MemberVerify.Repository.AccountRepo.GetAccountByMemberId(System.Int32)">
+            <summary>
+            Gets accounts for specified member id
+            </summary>
+            <param name = "id" ></param >
+            <returns ></returns >
+        </member>
         <member name="T:MemberVerify.Repository.MemberRepo">
             <summary>
             Represents member data repository for member information

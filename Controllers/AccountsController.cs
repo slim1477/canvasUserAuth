@@ -8,7 +8,7 @@ namespace MemberVerify
 {
 
     [ApiController]
-    [Route("accounts")]
+    [Route("api/v1")]
     public class AccountsController(IAccountRepo repo,IMapper _mapper) : ControllerBase
     {
 
