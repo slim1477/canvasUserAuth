@@ -13,7 +13,7 @@ const SearchBar = ({
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => {
-        const results = data.filter((user) => {
+        const results = data.filter((user: { name: string }) => {
           return (
             value &&
             user &&
