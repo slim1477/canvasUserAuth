@@ -14,6 +14,7 @@ import successIcon from "@/assets/Verification/success.png";
 import failIcon from "@/assets/Verification/fail.png";
 import { VerificationCode } from "./Code/VerificationCode";
 import { PrimaryQuestion } from "./Questions/PrimaryQuestion";
+import { itemCounter } from "@/utils/utils";
 
 export const VerifyButton = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -22,16 +23,31 @@ export const VerifyButton = () => {
   const [providedCode, setProvidedCode] = useState<boolean | "indeterminate">(
     false
   );
+  // disable verify button if there is no verification code or have not answered two primary questions
   const disableVerificationButton = () => {
-    if (!providedCode) {
-      return true;
+    if (providedCode || itemCounter(checkedState, true) > 1) {
+      return false;
     }
-    return false;
+
+    return true;
   };
   const handleVerifyButton = () => {
     setIsVerified(true);
     setIsOpen(false);
   };
+
+  // Create state to track each checkbox in Primary Questions
+  const [checkedState, setCheckedState] = useState(new Array(5).fill(false));
+
+  // function to update checked state array based on array positions
+  const handleCheckChange = (position: number) => {
+    const updatedCheckState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckState);
+  };
+
   return (
     <>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -62,7 +78,10 @@ export const VerifyButton = () => {
             setProvidedCode={setProvidedCode}
           />
           {/* Verify by answering account specific questions */}
-          <PrimaryQuestion />
+          <PrimaryQuestion
+            checkedState={checkedState}
+            handleCheckChange={handleCheckChange}
+          />
           <DialogFooter>
             <Button onClick={() => setIsOpen(false)} variant="ghost">
               Close

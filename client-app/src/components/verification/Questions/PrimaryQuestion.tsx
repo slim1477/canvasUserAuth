@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -7,18 +6,11 @@ import {
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 
-export const PrimaryQuestion = () => {
-  // Create state to track each checkbox
-  const [checkedState, setCheckedState] = useState(new Array(5).fill(false));
-
-  // function to update checked state array based on array positions
-  const handleCheckChange = (position: number) => {
-    const updatedCheckState = checkedState.map((item, index) =>
-      index === position ? !item : item
-    );
-
-    setCheckedState(updatedCheckState);
-  };
+type Props = {
+  checkedState: boolean[];
+  handleCheckChange: (position: number) => void;
+};
+export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
   return (
     <section>
       <Accordion type="single" collapsible className="w-full">
