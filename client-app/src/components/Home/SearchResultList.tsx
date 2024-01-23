@@ -14,12 +14,14 @@ export const SearchResultList = ({ results }: { results: User[] }) => {
       {results.length > 0 &&
         results.map((member) => {
           return (
-            <SearchResult
-              key={member.email}
-              email={member.email}
-              memberName={member.name}
-              phone={member.phone}
-            />
+            <a href="profile/1">
+              <SearchResult
+                key={member.email}
+                email={member.email}
+                memberName={member.name}
+                phone={member.phone}
+              />
+            </a>
           );
         })}
     </div>
