@@ -4,11 +4,12 @@ import canvaslogo from "@/assets/Header/canvas.jpg";
 const Header = () => {
   return (
     <header className="flex bg-background relative w-full justify-between items-center px-1.5 py-3 lg:p-3 border-b-4 lg:border-b-[10px] border-b-primary-accent">
-      <a href={"/"}>
-        <div>
+      <div className="flex items-center gap-10">
+        <a href={"/"}>
           <img className="h-9 lg:h-[60px]" src={canvaslogo} alt="canvas" />
-        </div>
-      </a>
+        </a>
+        <h1 className="text-[36px] lg:text-[44px] font-thin">Demo Mode</h1>
+      </div>
       <div>
         <img className="hidden lg:flex lg:h-[60px]" src={aculogo} alt="acu" />
       </div>

@@ -8,12 +8,12 @@ export default function Profile() {
         <div className="flex flex-col gap-5 rounded-lg lg:col-start-1">
           <div className="shadow-md bg-background rounded-lg">
             <ProfileDetails
-              memberName="James Doe"
-              memberNumber="17845500"
-              dateOfBirth="12/21/1939"
-              phone="+1(505)816-4459"
-              email="James.doe@gmail.com"
-              address="2-54 erkensel rd, Winnipeg MB, R1Y 2F9"
+              memberName="Demo Member"
+              memberNumber="11111111"
+              dateOfBirth="01/01/1939"
+              phone="+1(204)111-1111"
+              email="demo@email.com"
+              address="123 demo street, Winnipeg MB, A1A 2B2"
             />
           </div>
           <div className="h-[50px] lg:w-[50%] lg:flex lg:justify-end">
