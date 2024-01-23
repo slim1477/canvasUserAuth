@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,13 +8,27 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const PrimaryQuestion = () => {
+  // Create state to track each checkbox
+  const [checkedState, setCheckedState] = useState(new Array(5).fill(false));
+
+  // function to update checked state array based on array positions
+  const handleCheckChange = (position: number) => {
+    const updatedCheckState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckState);
+  };
   return (
     <section>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>
             <section className="flex items-center gap-3">
-              <Checkbox />
+              <Checkbox
+                checked={checkedState[0]}
+                onCheckedChange={() => handleCheckChange(0)}
+              />
               Primary Question 1
             </section>
           </AccordionTrigger>
@@ -26,7 +40,10 @@ export const PrimaryQuestion = () => {
           <AccordionTrigger>
             {" "}
             <section className="flex items-center gap-3">
-              <Checkbox />
+              <Checkbox
+                checked={checkedState[1]}
+                onCheckedChange={() => handleCheckChange(1)}
+              />
               Primary Question 2{" "}
             </section>
           </AccordionTrigger>
@@ -36,7 +53,10 @@ export const PrimaryQuestion = () => {
           <AccordionTrigger>
             {" "}
             <section className="flex items-center gap-3">
-              <Checkbox />
+              <Checkbox
+                checked={checkedState[2]}
+                onCheckedChange={() => handleCheckChange(2)}
+              />
               Primary Question 3{" "}
             </section>
           </AccordionTrigger>
@@ -48,7 +68,10 @@ export const PrimaryQuestion = () => {
           <AccordionTrigger>
             {" "}
             <section className="flex items-center gap-3">
-              <Checkbox />
+              <Checkbox
+                checked={checkedState[3]}
+                onCheckedChange={() => handleCheckChange(3)}
+              />
               Primary Question 4{" "}
             </section>
           </AccordionTrigger>
@@ -60,7 +83,10 @@ export const PrimaryQuestion = () => {
           <AccordionTrigger>
             {" "}
             <section className="flex items-center gap-3">
-              <Checkbox />
+              <Checkbox
+                checked={checkedState[4]}
+                onCheckedChange={() => handleCheckChange(4)}
+              />
               Primary Question 5{" "}
             </section>
           </AccordionTrigger>
