@@ -64,7 +64,9 @@ export const VerifyButton = () => {
           {/* Verify by answering account specific questions */}
           <PrimaryQuestion />
           <DialogFooter>
-            <Button variant="ghost">Skip</Button>
+            <Button onClick={() => setIsOpen(false)} variant="ghost">
+              Close
+            </Button>
             <Button
               disabled={disableVerificationButton()}
               className="bg-primary-accent"
