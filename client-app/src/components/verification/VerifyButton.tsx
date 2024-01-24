@@ -15,6 +15,8 @@ import failIcon from "@/assets/Verification/fail.png";
 import { VerificationCode } from "./Code/VerificationCode";
 import { PrimaryQuestion } from "./Questions/PrimaryQuestion";
 import { itemCounter } from "@/utils/utils";
+import Divider from "../Home/Divider";
+import { ScrollArea } from "../ui/scroll-area";
 
 export const VerifyButton = () => {
   const [isVerified, setIsVerified] = useState(false);
@@ -67,21 +69,30 @@ export const VerifyButton = () => {
             </div>
           </Button>
         </DialogTrigger>
-        <DialogContent className={"lg:max-w-screen-lg max-h-screen"}>
+        <DialogContent
+          className={"lg:max-w-screen-lg overflow-y-hidden max-h-screen"}
+        >
           <DialogHeader>
             <DialogTitle>Verify Member</DialogTitle>
-            <DialogDescription>Using Verification code</DialogDescription>
+            <DialogDescription>
+              Using Verification code or answer primary questions
+            </DialogDescription>
           </DialogHeader>
-          {/* Verify using code */}
-          <VerificationCode
-            providedCode={providedCode}
-            setProvidedCode={setProvidedCode}
-          />
-          {/* Verify by answering account specific questions */}
-          <PrimaryQuestion
-            checkedState={checkedState}
-            handleCheckChange={handleCheckChange}
-          />
+          <ScrollArea className="h-[350px]">
+            <section className="flex flex-col gap-6 py-6">
+              {/* Verify using code */}
+              <VerificationCode
+                providedCode={providedCode}
+                setProvidedCode={setProvidedCode}
+              />
+              <Divider />
+              {/* Verify by answering account specific questions */}
+              <PrimaryQuestion
+                checkedState={checkedState}
+                handleCheckChange={handleCheckChange}
+              />
+            </section>
+          </ScrollArea>
           <DialogFooter>
             <Button onClick={() => setIsOpen(false)} variant="ghost">
               Close
