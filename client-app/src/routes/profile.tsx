@@ -1,5 +1,6 @@
 import { VerifyButton } from "@/components/verification/VerifyButton";
 import { ProfileDetails } from "@/components/Profile/ProfileDetails";
+import ProfileTabs from "@/components/Profile/ProfileTabs";
 
 export default function Profile() {
   return (
@@ -23,7 +24,7 @@ export default function Profile() {
       </div>
       <div className="lg:row-span-3 lg:col-start-2">
         <div className="h-[600px] border rounded-lg shadow-md bg-background">
-          Member Profile Tabs
+          <ProfileTabs />
         </div>
       </div>
     </section>
