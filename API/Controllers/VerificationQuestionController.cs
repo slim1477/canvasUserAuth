@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MemberVerify.Models;
-using System.Linq;
 using MemberVerify.Data.DataStore;
+using MemberVerify.BusinessLogic;
+using MemberVerify.Models.DTOs;
+using AutoMapper;
 
 namespace MemberVerify.Controllers
 {
 
     [ApiController]
     [Route("api/v1")]
-    public class VerificationQuestionController : ControllerBase
+    public class VerificationQuestionController (IMapper _mapper): ControllerBase
     {
         /// <summary>
         /// Gets verification question and answer for specified member Id
@@ -31,6 +33,38 @@ namespace MemberVerify.Controllers
             }
 
             return response;
+        }
+
+
+        /// <summary>
+        /// Gets the opening question for a verification session
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <returns>question and answer based on member profile</returns>
+
+        [HttpGet]
+        [Route("opener/{ownerId:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public ActionResult<string> GetVerificationQuestionsByMemberId(int ownerId)
+        {
+            var openingQuestion = new QuestionBuilder(ownerId);
+            // Refactor QuestionBuilder to accept a constructor of memberId
+            // then pass the member Id to the Build function that you'll create
+            // the build function will generate 3 primary questions and 2 secondary questions
+            // Also don't forget to refactor code for maintenace when you are done
+            // in the util folder, create functions - GetTransactions,GetTransactionType,GetHomeBranch e.t.c.
+            //var ans = openingQuestion.GetOpeningQuestionAndAnswer();
+            var ans = openingQuestion.BuildQuestions();
+
+            //Answer answer = openingQuestion.GetOpeningQuestionAndAnswer();
+
+
+
+            return ans; //_mapper.Map<AnswerDTO>(ans);
         }
 
         /// <summary>
@@ -101,5 +135,7 @@ namespace MemberVerify.Controllers
             }
             return Ok($"Verification code for member Id {ownerId} updated successfully");
         }
+
+
     }
 }

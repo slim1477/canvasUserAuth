@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using MemberVerify.Models.Response;
 using MemberVerify.Models.DTOs;
+using MemberVerify.Models;
+using MemberVerify.BusinessLogic;
 
 namespace MemberVerify
 { 
@@ -10,7 +11,8 @@ namespace MemberVerify
         {
             CreateMap<Member,MemberDto>().ReverseMap();
             CreateMap<IAccount,AccountDto>().ReverseMap();
-            
+            CreateMap<Answer, AnswerDTO>().ReverseMap();
+
         } 
     }
 }

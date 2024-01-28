@@ -40,7 +40,7 @@ namespace MemberVerify
         /// <summary>
         /// Gets account for specified account number
         /// </summary>
-        /// <returns> specified account</returns>
+        /// <returns> specified account with account number</returns>
         [HttpGet]
         [Route("account/{acctNum:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

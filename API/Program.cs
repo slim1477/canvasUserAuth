@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -12,7 +13,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // Allow CORS
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost");
+    });
+});
 
 // add documentation to swagger via xml
 builder.Services.AddSwaggerGen(doc =>
@@ -32,16 +39,18 @@ builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 
+
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseCors();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     //app.UseSwagger();
     //app.UseSwaggerUI();
-    app.UseCors();
+   
 }
 
 app.UseHttpsRedirection();

@@ -4,6 +4,32 @@
         <name>MemberVerify</name>
     </assembly>
     <members>
+        <member name="T:MemberVerify.BusinessLogic.QuestionBuilder">
+            <summary>
+            constructs the verification questions
+            </summary>
+        </member>
+        <member name="M:MemberVerify.BusinessLogic.Util.VerificationAnswer.AnswerToOpeningQuestion(System.Int32)">
+            <summary>
+             Gets the Answer opening question for verifying a member
+            </summary>
+        </member>
+        <member name="T:MemberVerify.BusinessLogic.Util.QuestionGetter">
+            <summary>
+            Get questions from the question repository
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MemberVerify.BusinessLogic.Util.QuestionGetter.GetOpeningQuestion" -->
+        <member name="M:MemberVerify.BusinessLogic.Util.QuestionGetter.GetPrimaryQuestion">
+            <summary>
+            Gets all primary  questions
+            </summary>
+        </member>
+        <member name="M:MemberVerify.BusinessLogic.Util.QuestionGetter.GetSecondaryQuestion">
+            <summary>
+            Get all secondary question
+            </summary>
+        </member>
         <member name="M:MemberVerify.AccountsController.GetMemberAccountById(System.Int32)">
             <summary>
             Gets accounts for specified member Id
@@ -14,7 +40,7 @@
             <summary>
             Gets account for specified account number
             </summary>
-            <returns> specified account</returns>
+            <returns> specified account with account number</returns>
         </member>
         <member name="T:MemberVerify.MemberController">
             <summary>
@@ -58,6 +84,13 @@
             Gets verification question and answer for specified member Id
             </summary>
             <returns> List of member accounts</returns>
+        </member>
+        <member name="M:MemberVerify.Controllers.VerificationQuestionController.GetVerificationQuestionsByMemberId(System.Int32)">
+            <summary>
+            Gets the opening question for a verification session
+            </summary>
+            <param name="ownerId"></param>
+            <returns>question and answer based on member profile</returns>
         </member>
         <member name="M:MemberVerify.Controllers.VerificationQuestionController.CreateVerificationQuestionAndAnswer(System.Int32,System.String,System.String)">
             <summary>
