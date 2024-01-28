@@ -19,7 +19,11 @@
             Get questions from the question repository
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:MemberVerify.BusinessLogic.Util.QuestionGetter.GetOpeningQuestion" -->
+        <member name="M:MemberVerify.BusinessLogic.Util.QuestionGetter.GetOpeningQuestion">
+            <summary>
+            Gets the opening question
+            </summary>
+        </member>
         <member name="M:MemberVerify.BusinessLogic.Util.QuestionGetter.GetPrimaryQuestion">
             <summary>
             Gets all primary  questions

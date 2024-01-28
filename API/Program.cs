@@ -13,13 +13,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // Allow CORS
-builder.Services.AddCors(options =>
+
+builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
 {
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost");
-    });
-});
+    builder.WithOrigins("*")
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+
+}));
 
 // add documentation to swagger via xml
 builder.Services.AddSwaggerGen(doc =>
@@ -44,7 +45,7 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseCors();
+app.UseCors("MyPolicy");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
