@@ -6,19 +6,19 @@ const SearchBar = ({
 }: {
   setSearchResults: (results: []) => void;
 }) => {
-  // const API_URL = "http://localhost:5002/apiv1/";
+  const API_URL = "http://localhost:5002/api/v1/members";
   const [searchInput, setSearchInput] = useState("");
 
   const fetchData = (value: string) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
-        const results = data.filter((user: { name: string }) => {
+        const results = data.filter((user: { firstName: string }) => {
           return (
             value &&
             user &&
-            user.name &&
-            user.name.toLowerCase().includes(value.toLowerCase())
+            user.firstName &&
+            user.firstName.toLowerCase().includes(value.toLowerCase())
           );
         });
         setSearchResults(results);
