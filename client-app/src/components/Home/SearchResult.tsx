@@ -17,9 +17,9 @@ export const SearchResult = ({ memberName, email, address, phone }: Props) => {
           {/* <p>Member Number</p> */}
         </div>
       </div>
-      <div className="flex w-[50%] items-center justify-between gap-4 lg:gap-10">
+      <div className="flex lg:w-[60%] items-center justify-between gap-4 lg:gap-10">
         <p className="">{phone}</p>
-        <p className="hidden lg:flex">{address}</p>
+        <p className="hidden w-1/3 lg:flex">{address}</p>
         <p className="hidden lg:flex">{email}</p>
       </div>
     </section>

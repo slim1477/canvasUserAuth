@@ -6,7 +6,7 @@ interface User {
   id: number;
   username: string;
   email: string;
-  address: {};
+  address: string;
   phoneNumber: string;
 }
 export const SearchResultList = ({ results }: { results: User[] }) => {
@@ -21,6 +21,7 @@ export const SearchResultList = ({ results }: { results: User[] }) => {
               <SearchResult
                 key={member.id}
                 email={member.email}
+                address={member.address}
                 memberName={fullName}
                 phone={member.phoneNumber}
               />
