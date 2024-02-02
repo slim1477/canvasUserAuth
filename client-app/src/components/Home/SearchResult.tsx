@@ -3,9 +3,14 @@ type Props = {
   memberName: string;
   email: string;
   address?: string;
-  phone: string;
+  dateOfBirth: string;
 };
-export const SearchResult = ({ memberName, email, address, phone }: Props) => {
+export const SearchResult = ({
+  memberName,
+  email,
+  address,
+  dateOfBirth,
+}: Props) => {
   return (
     <section className="flex px-6 py-4 rounded-lg justify-between">
       <div className="flex items-center gap-6">
@@ -18,7 +23,7 @@ export const SearchResult = ({ memberName, email, address, phone }: Props) => {
         </div>
       </div>
       <div className="flex lg:w-[60%] items-center justify-between gap-4 lg:gap-10">
-        <p className="">{phone}</p>
+        <p className="">{dateOfBirth}</p>
         <p className="hidden w-1/3 lg:flex">{address}</p>
         <p className="hidden lg:flex">{email}</p>
       </div>
