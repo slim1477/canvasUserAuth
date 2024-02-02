@@ -16,7 +16,7 @@ export const SearchResultList = ({ results }: { results: User[] }) => {
         results.map((member) => {
           const fullName = member.firstName + " " + member.lastName;
           return (
-            <a key={member.id} href="profile/1">
+            <a key={member.id} href={`profile/${member.id}`}>
               <SearchResult
                 email={member.email}
                 address={member.address}
