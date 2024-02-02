@@ -4,7 +4,7 @@ interface IMember {
   firstName: string;
   lastName: string;
   memberId: string;
-  username: string;
+  dateOfBirth: string;
   email: string;
   address: string;
   phoneNumber: string;
@@ -12,7 +12,7 @@ interface IMember {
 
 interface Action {
   updateId: (id: string) => void;
-  updateUsername: (username: string) => void;
+  updateDateOfBirth: (username: string) => void;
   updateEmail: (Email: string) => void;
   updateFirstName: (firstName: string) => void;
   updateLastName: (lastName: string) => void;
@@ -24,15 +24,15 @@ export const useMemberStore = create<IMember & Action>((set) => ({
   firstName: "",
   lastName: "",
   memberId: "",
-  username: "",
+  dateOfBirth: "",
   email: "",
   address: "",
   phoneNumber: "",
   updateId: (id) => {
     set((_state) => ({ memberId: id }));
   },
-  updateUsername: (newUsername) => {
-    set((_state) => ({ username: newUsername }));
+  updateDateOfBirth: (dob) => {
+    set((_state) => ({ dateOfBirth: dob }));
   },
   updateEmail: (Email) => {
     set((_state) => ({ email: Email }));
