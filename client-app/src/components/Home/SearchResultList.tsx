@@ -4,7 +4,7 @@ interface User {
   firstName: string;
   lastName: string;
   id: number;
-  username: string;
+  dob: string;
   email: string;
   address: string;
   phoneNumber: string;
@@ -21,7 +21,7 @@ export const SearchResultList = ({ results }: { results: User[] }) => {
                 email={member.email}
                 address={member.address}
                 memberName={fullName}
-                phone={member.phoneNumber}
+                dateOfBirth={member.dob}
               />
             </a>
           );
