@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
+import { QuestionOne } from "./QuestionOne/QuestionOne";
 
 type Props = {
   checkedState: boolean[];
@@ -21,11 +22,11 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[0]}
                 onCheckedChange={() => handleCheckChange(0)}
               />
-              Primary Question 1
+              Type of account and account balance
             </section>
           </AccordionTrigger>
           <AccordionContent>
-            Type of account and account balance
+            <QuestionOne />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
