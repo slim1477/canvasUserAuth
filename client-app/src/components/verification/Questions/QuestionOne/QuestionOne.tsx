@@ -38,7 +38,7 @@ export const QuestionOne = () => {
   return (
     <div
       className={"ag-theme-quartz"}
-      style={{ width: "100%", height: "200px" }}
+      style={{ width: "100%", height: "172px" }}
     >
       <AgGridReact rowData={rowData} columnDefs={colDefs} />
     </div>
