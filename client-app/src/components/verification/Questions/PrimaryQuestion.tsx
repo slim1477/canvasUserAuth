@@ -7,6 +7,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { QuestionOne } from "./QuestionOne/QuestionOne";
 import { QuestionThree } from "./QuestionThree/QuestionThree";
+import { QuestionFive } from "./QuestionFive/QuestionFive";
 
 type Props = {
   checkedState: boolean[];
@@ -81,10 +82,12 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[4]}
                 onCheckedChange={() => handleCheckChange(4)}
               />
-              Primary Question 5{" "}
+              Last 5 Debit Transactions
             </section>
           </AccordionTrigger>
-          <AccordionContent>Last 5 Debit Card Transactions</AccordionContent>
+          <AccordionContent>
+            <QuestionFive />
+          </AccordionContent>
         </AccordionItem>
       </Accordion>
     </section>
