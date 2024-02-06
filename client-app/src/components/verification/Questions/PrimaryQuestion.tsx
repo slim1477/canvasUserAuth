@@ -7,6 +7,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { QuestionOne } from "./QuestionOne/QuestionOne";
 import { QuestionThree } from "./QuestionThree/QuestionThree";
+import { QuestionFour } from "./QuestionFour/QuestionFour";
 import { QuestionFive } from "./QuestionFive/QuestionFive";
 
 type Props = {
@@ -67,11 +68,11 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[3]}
                 onCheckedChange={() => handleCheckChange(3)}
               />
-              Primary Question 4{" "}
+              Recurring debits or credits e.g payroll, bill payment, CRA e.t.c
             </section>
           </AccordionTrigger>
           <AccordionContent>
-            Recurring debits or credits e.g payroll, bill payment, CRA e.t.c
+            <QuestionFour />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-5">
