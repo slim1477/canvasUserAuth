@@ -5,6 +5,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
+import { QuestionOne } from "./QuestionOne/QuestionOne";
+import { QuestionThree } from "./QuestionThree/QuestionThree";
+import { QuestionFour } from "./QuestionFour/QuestionFour";
+import { QuestionFive } from "./QuestionFive/QuestionFive";
+import { QuestionTwo } from "./QuestionTwo/QuestionTwo";
 
 type Props = {
   checkedState: boolean[];
@@ -21,11 +26,11 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[0]}
                 onCheckedChange={() => handleCheckChange(0)}
               />
-              Primary Question 1
+              Type of account and account balance
             </section>
           </AccordionTrigger>
           <AccordionContent>
-            Type of account and account balance
+            <QuestionOne />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
@@ -36,10 +41,12 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[1]}
                 onCheckedChange={() => handleCheckChange(1)}
               />
-              Primary Question 2{" "}
+              Last 5 Transactions in Account
             </section>
           </AccordionTrigger>
-          <AccordionContent>Last 5 Transactions in Account</AccordionContent>
+          <AccordionContent>
+            <QuestionTwo />
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
           <AccordionTrigger>
@@ -49,11 +56,11 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[2]}
                 onCheckedChange={() => handleCheckChange(2)}
               />
-              Primary Question 3{" "}
+              Loan Accounts
             </section>
           </AccordionTrigger>
           <AccordionContent>
-            Loan Accounts? Payment amount and frequency
+            <QuestionThree />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-4">
@@ -64,11 +71,11 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[3]}
                 onCheckedChange={() => handleCheckChange(3)}
               />
-              Primary Question 4{" "}
+              Recurring debits or credits
             </section>
           </AccordionTrigger>
           <AccordionContent>
-            Recurring debits or credits e.g payroll, bill payment, CRA e.t.c
+            <QuestionFour />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-5">
@@ -79,10 +86,12 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[4]}
                 onCheckedChange={() => handleCheckChange(4)}
               />
-              Primary Question 5{" "}
+              Last 5 Debit Transactions
             </section>
           </AccordionTrigger>
-          <AccordionContent>Last 5 Debit Card Transactions</AccordionContent>
+          <AccordionContent>
+            <QuestionFive />
+          </AccordionContent>
         </AccordionItem>
       </Accordion>
     </section>
