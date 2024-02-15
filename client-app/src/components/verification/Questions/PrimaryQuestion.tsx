@@ -9,6 +9,7 @@ import { QuestionOne } from "./QuestionOne/QuestionOne";
 import { QuestionThree } from "./QuestionThree/QuestionThree";
 import { QuestionFour } from "./QuestionFour/QuestionFour";
 import { QuestionFive } from "./QuestionFive/QuestionFive";
+import { QuestionTwo } from "./QuestionTwo/QuestionTwo";
 
 type Props = {
   checkedState: boolean[];
@@ -40,10 +41,12 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[1]}
                 onCheckedChange={() => handleCheckChange(1)}
               />
-              Primary Question 2{" "}
+              Last 5 Transactions in Account
             </section>
           </AccordionTrigger>
-          <AccordionContent>Last 5 Transactions in Account</AccordionContent>
+          <AccordionContent>
+            <QuestionTwo />
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
           <AccordionTrigger>
@@ -68,7 +71,7 @@ export const PrimaryQuestion = ({ checkedState, handleCheckChange }: Props) => {
                 checked={checkedState[3]}
                 onCheckedChange={() => handleCheckChange(3)}
               />
-              Recurring debits or credits e.g payroll, bill payment, CRA e.t.c
+              Recurring debits or credits
             </section>
           </AccordionTrigger>
           <AccordionContent>
